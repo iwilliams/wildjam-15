@@ -81,7 +81,6 @@ rotation = 1.5708
 should_fall = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Container" type="MarginContainer" parent="HUD"]
 anchor_right = 1.0

@@ -15,7 +15,7 @@ room_scene = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 220.135, 206.758 )
+position = Vector2( 196.219, 273.725 )
 mass = 1.5
 stamina_recovery_rate = 80
 stamina_recovery_period = 10

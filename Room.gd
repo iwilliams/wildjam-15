@@ -21,12 +21,12 @@ func spawn_platforms():
   randomize()
   
   # Determine how many platforms to spawn
-  var possible_platforms = [2, 3]
-  possible_platforms.shuffle()
-  var num_platforms = possible_platforms.pop_front()
-
+#  var possible_platforms = [2, 3]
+#  possible_platforms.shuffle()
+#  var num_platforms = possible_platforms.pop_front()
+  var num_platforms = 3
   # Get the possible spawn columns and randomize them
-  var spawns = [spawn_1, spawn_2, spawn_3, spawn_4]
+  var spawns = [spawn_1, spawn_2, spawn_3]
   spawns.shuffle()
   
   for i in num_platforms:

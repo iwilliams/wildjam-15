@@ -3,10 +3,10 @@
 [ext_resource path="res://Platform.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.6
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.5
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 185.274, 16.6783 )
 
 [sub_resource type="Animation" id=3]
@@ -29,7 +29,7 @@ tracks/0/keys = {
 ]]
 mode = 3
 mass = 3.0
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
@@ -42,7 +42,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shake = SubResource( 3 )

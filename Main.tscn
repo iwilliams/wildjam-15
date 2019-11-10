@@ -17,10 +17,13 @@ room_scene = ExtResource( 2 )
 editor/display_folded = true
 position = Vector2( 220.135, 206.758 )
 mass = 1.5
+gravity_scale = 6.28
+ground_horizontal_speed = 12
+air_horizontal_speed = 8
 stamina_recovery_rate = 80
 stamina_recovery_period = 10
 jump_stamina_cost = 15
-jump_force = 100
+jump_force = 300
 
 [node name="StaminaBar" type="ProgressBar" parent="Player"]
 anchor_left = 1.0

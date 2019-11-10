@@ -10,7 +10,8 @@ func _ready():
 
 func _on_Platform_body_entered(body):
   print("Landed on")
-  get_node("AnimationPlayer").play("Shake")
-  yield(get_tree().create_timer(1.0), "timeout")
-  mode = RigidBody2D.MODE_CHARACTER
+  if mode != RigidBody2D.MODE_CHARACTER:
+    get_node("AnimationPlayer").play("Shake")
+    yield(get_tree().create_timer(1.0), "timeout")
+    mode = RigidBody2D.MODE_CHARACTER
   pass # Replace with function body.

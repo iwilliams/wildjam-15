@@ -19,7 +19,7 @@ func _ready():
   pass # Replace with function body.
 
 func jump():
-  if stamina > jump_stamina_cost:
+  if stamina > 0:
     apply_central_impulse(Vector2(0, -jump_force))
     stamina -= jump_stamina_cost
     stamina = clamp(stamina, 0, 100)

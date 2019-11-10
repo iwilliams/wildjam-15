@@ -43,4 +43,5 @@ move_left={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.847059, 0.92549, 0.964706, 1 )
 environment/default_environment="res://default_env.tres"

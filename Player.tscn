@@ -33,12 +33,6 @@ extents = Vector2( 31.5005, 31.4946 )
 position = Vector2( 150.583, 326.984 )
 mode = 2
 script = ExtResource( 1 )
-ground_horizontal_speed = null
-air_horizontal_speed = null
-stamina_recovery_rate = null
-stamina_recovery_period = null
-jump_stamina_cost = null
-jump_force = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2.30566, 2.37891 )

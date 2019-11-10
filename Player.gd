@@ -24,7 +24,7 @@ func jump():
     stamina -= jump_stamina_cost
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
-	$Sprite/AnimatedSprite.play("fly")
+    $Sprite/AnimatedSprite.play("flying")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

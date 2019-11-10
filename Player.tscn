@@ -1,9 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://asses/Chicken Character- Frame 0.png" type="Texture" id=2]
+[ext_resource path="res://asses/Chicken Character- Frame 4.png" type="Texture" id=3]
+[ext_resource path="res://asses/Chicken Character- Frame 3.png" type="Texture" id=4]
+[ext_resource path="res://asses/Chicken Character- Frame 1.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "flying",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.5005, 31.4946 )
 
 [node name="Player" type="RigidBody2D" groups=[
@@ -12,15 +33,25 @@ extents = Vector2( 31.5005, 31.4946 )
 position = Vector2( 150.583, 326.984 )
 mode = 2
 script = ExtResource( 1 )
+ground_horizontal_speed = null
+air_horizontal_speed = null
+stamina_recovery_rate = null
+stamina_recovery_period = null
+jump_stamina_cost = null
+jump_force = null
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 2.30566, 2.37891 )
+scale = Vector2( 0.0523801, 0.0523801 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite"]
+position = Vector2( 8.26585, -17.6891 )
+scale = Vector2( 0.880468, 0.880468 )
+frames = SubResource( 1 )
+animation = "flying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }

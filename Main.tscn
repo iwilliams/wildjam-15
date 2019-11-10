@@ -33,7 +33,6 @@ position = Vector2( 512, 0 )
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 74.0753, 403.143 )
 mass = 1.5
 gravity_scale = 6.28

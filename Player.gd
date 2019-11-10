@@ -24,7 +24,8 @@ func jump():
     stamina -= jump_stamina_cost
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
-    $Sprite/AnimatedSprite.play("flying")
+    $AnimatedSprite.frame = 0
+    $AnimatedSprite.play("flying")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -47,6 +48,17 @@ func _physics_process(delta):
   if OS.get_ticks_msec() - last_jump >= stamina_recovery_period && on_ground:
     stamina += stamina_recovery_rate * delta
     stamina = clamp(stamina, 0, 100)
+    
+  if linear_velocity.x != 0 && on_ground:
+    $AnimatedSprite.play("walking")
+  elif on_ground:
+    $AnimatedSprite.play("idle")
+  
+  if linear_velocity.x < 0:
+      $AnimatedSprite.flip_h = true
+  else:
+      $AnimatedSprite.flip_h = false
+      
   pass
   
 func _input(event):

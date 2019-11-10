@@ -34,7 +34,7 @@ position = Vector2( 512, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 61.6895, 259.19 )
+position = Vector2( 74.0753, 403.143 )
 mass = 1.5
 gravity_scale = 6.28
 ground_horizontal_speed = 12
@@ -64,10 +64,24 @@ limit_bottom = 600
 drag_margin_right = 0.0
 
 [node name="Platform" parent="." instance=ExtResource( 4 )]
-position = Vector2( 133.396, 318.848 )
+position = Vector2( -59.594, 500 )
+should_fall = false
+
+[node name="Platform2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 164.576, 500 )
+should_fall = false
+
+[node name="Platform3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 388.523, 500 )
+should_fall = false
+
+[node name="Platform4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 495.065, 627.213 )
+rotation = 1.5708
 should_fall = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Debug" type="Label" parent="HUD"]
 margin_left = 10.0

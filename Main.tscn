@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Debug.gd" type="Script" id=4]
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Debug.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.301961, 0.717647, 0.152941, 1 )
@@ -26,11 +27,14 @@ script = ExtResource( 1 )
 room_scene = ExtResource( 2 )
 
 [node name="Rooms" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 512, 0 )
 
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 167.658, 286.401 )
+editor/display_folded = true
+position = Vector2( 61.6895, 259.19 )
 mass = 1.5
 gravity_scale = 6.28
 ground_horizontal_speed = 12
@@ -59,6 +63,10 @@ limit_top = 0
 limit_bottom = 600
 drag_margin_right = 0.0
 
+[node name="Platform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 133.396, 318.848 )
+should_fall = false
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Debug" type="Label" parent="HUD"]
@@ -68,4 +76,4 @@ margin_right = 40.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "60fps"
-script = ExtResource( 4 )
+script = ExtResource( 5 )

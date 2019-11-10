@@ -11,6 +11,7 @@ extents = Vector2( 512, 20 )
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 1 )
+platform_scene = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
@@ -25,12 +26,6 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Platform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 286.999, 334.832 )
-
-[node name="Platform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 783.026, 438.274 )
 
 [node name="RoomCheck" type="RayCast2D" parent="."]
 position = Vector2( 512, 300 )
@@ -58,6 +53,45 @@ shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Spawn1" type="Node2D" parent="."]
+position = Vector2( 128, 300 )
+
+[node name="Top" type="Node2D" parent="Spawn1"]
+position = Vector2( 0, -150 )
+
+[node name="Bottom" type="Node2D" parent="Spawn1"]
+position = Vector2( 0, 150 )
+
+[node name="Spawn2" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 384, 300 )
+
+[node name="Top" type="Node2D" parent="Spawn2"]
+position = Vector2( 0, -150 )
+
+[node name="Bottom" type="Node2D" parent="Spawn2"]
+position = Vector2( 0, 150 )
+
+[node name="Spawn3" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 640, 300 )
+
+[node name="Top" type="Node2D" parent="Spawn3"]
+position = Vector2( 0, -150 )
+
+[node name="Bottom" type="Node2D" parent="Spawn3"]
+position = Vector2( 0, 150 )
+
+[node name="Spawn4" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 896, 300 )
+
+[node name="Top" type="Node2D" parent="Spawn4"]
+position = Vector2( 0, -150 )
+
+[node name="Bottom" type="Node2D" parent="Spawn4"]
+position = Vector2( 0, 150 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
 [connection signal="body_entered" from="DeathArea2" to="." method="_on_DeathArea_body_entered"]

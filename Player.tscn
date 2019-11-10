@@ -25,7 +25,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 50.5074, 75.2541 )
+extents = Vector2( 47.1967, 75.2541 )
 
 [node name="Player" type="RigidBody2D" groups=[
 "Player",
@@ -44,15 +44,16 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 9.90628, 19.1705 )
+position = Vector2( 3.08066, 18.0329 )
+scale = Vector2( 0.967716, 1 )
 shape = SubResource( 2 )
 
 [node name="GroundCheckL" type="RayCast2D" parent="."]
-position = Vector2( 59.1151, 62.4625 )
+position = Vector2( -40.9942, 59.6184 )
 enabled = true
 cast_to = Vector2( 0, 35 )
 
 [node name="GroundCheckR" type="RayCast2D" parent="."]
-position = Vector2( -39.1448, 62.3034 )
+position = Vector2( 46.7444, 59.4594 )
 enabled = true
 cast_to = Vector2( 0, 35 )

@@ -4,6 +4,7 @@ signal room_entered
 signal player_entered_death_area
 
 export (PackedScene) var platform_scene
+export (PackedScene) var saw_scene
 
 onready var room_check = get_node("RoomCheck")
 onready var spawn_1 = get_node("Spawn1")
@@ -17,29 +18,36 @@ func _ready():
   spawn_platforms()
   pass # Replace with function body.
 
+func get_spawn_position(spawn):
+  return Vector2(
+    spawn.position.x,
+    rand_range(
+      spawn.position.y + spawn.get_node("Top").position.y,
+      spawn.position.y + spawn.get_node("Bottom").position.y
+    )
+  )
+  
+func spawn_platform(spawn):
+  var platform = platform_scene.instance()
+  platform.position = get_spawn_position(spawn)
+  add_child(platform)
+  pass
+
+func spawn_saw(spawn):
+  var saw = saw_scene.instance()
+  saw.position = get_spawn_position(spawn)
+  saw.connect("body_entered", self, "_on_DeathArea_body_entered")
+  add_child(saw)
+  pass
+
 func spawn_platforms():
   randomize()
-  
-  # Determine how many platforms to spawn
-#  var possible_platforms = [2, 3]
-#  possible_platforms.shuffle()
-#  var num_platforms = possible_platforms.pop_front()
-  var num_platforms = 3
-  # Get the possible spawn columns and randomize them
-  var spawns = [spawn_1, spawn_2, spawn_3]
-  spawns.shuffle()
-  
-  for i in num_platforms:
-    var spawn = spawns.pop_front()
-    var platform = platform_scene.instance()
-    platform.position = Vector2(
-      spawn.position.x,
-      rand_range(
-        spawn.position.y + spawn.get_node("Top").position.y,
-        spawn.position.y + spawn.get_node("Bottom").position.y
-      )
-    )
-    add_child(platform)
+  spawn_platform(spawn_1)
+  if rand_range(0, 1) > .75:
+    spawn_saw(spawn_2)
+  else:
+    spawn_platform(spawn_2)
+  spawn_platform(spawn_3)  
 
 func _on_Area2D_body_entered(body):
   if body.is_in_group("Player"):
@@ -48,6 +56,7 @@ func _on_Area2D_body_entered(body):
   pass # Replace with function body.
 
 func _on_DeathArea_body_entered(body):
+  print("HIT")
   if body.is_in_group("Player"):
     emit_signal("player_entered_death_area")
   elif body.is_in_group("Platform"):

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://asses/saw.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 17.0262
+
+[sub_resource type="Animation" id=2]
+resource_name = "Spin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+
+[node name="Saw" type="RigidBody2D"]
+position = Vector2( 505.601, 123.771 )
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -2.17835
+scale = Vector2( 3.7426, 3.7426 )
+texture = ExtResource( 1 )
+offset = Vector2( -2.41674, -2.41675 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 3.68, 3.68 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Spin"
+anims/Spin = SubResource( 2 )

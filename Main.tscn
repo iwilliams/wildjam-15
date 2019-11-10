@@ -80,13 +80,24 @@ rotation = 1.5708
 should_fall = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
-[node name="Debug" type="Label" parent="HUD"]
+[node name="Container" type="MarginContainer" parent="HUD"]
+anchor_right = 1.0
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 40.0
+margin_right = -10.0
+margin_bottom = 14.0
+
+[node name="Debug" type="Label" parent="HUD/Container"]
+margin_right = 1004.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "60fps"
 script = ExtResource( 5 )
+
+[node name="Score" type="Label" parent="HUD/Container"]
+margin_right = 1004.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DISTANCE: 00M"
+align = 2

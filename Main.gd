@@ -7,6 +7,7 @@ export (PackedScene) var room_scene
 
 onready var player = get_node("Player")
 onready var stamina_bar = get_node("Player/StaminaBar")
+onready var score_label = get_node("HUD/Container/Score")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
   
 func _process(delta):
   stamina_bar.value = player.stamina
+  score_label.text = "DISTANCE: " + str(floor(player.position.x/100)) + "M"
   pass
 
 func create_room(position):

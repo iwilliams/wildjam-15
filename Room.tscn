@@ -47,6 +47,7 @@ __meta__ = {
 [node name="DeathArea2" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 512, -60 )
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea2"]
 shape = SubResource( 2 )
@@ -55,7 +56,7 @@ __meta__ = {
 }
 
 [node name="Spawn1" type="Node2D" parent="."]
-position = Vector2( 128, 300 )
+position = Vector2( 170.66, 300 )
 
 [node name="Top" type="Node2D" parent="Spawn1"]
 position = Vector2( 0, -150 )
@@ -65,7 +66,7 @@ position = Vector2( 0, 150 )
 
 [node name="Spawn2" type="Node2D" parent="."]
 editor/display_folded = true
-position = Vector2( 384, 300 )
+position = Vector2( 512, 300 )
 
 [node name="Top" type="Node2D" parent="Spawn2"]
 position = Vector2( 0, -150 )
@@ -75,7 +76,7 @@ position = Vector2( 0, 150 )
 
 [node name="Spawn3" type="Node2D" parent="."]
 editor/display_folded = true
-position = Vector2( 640, 300 )
+position = Vector2( 853.33, 300 )
 
 [node name="Top" type="Node2D" parent="Spawn3"]
 position = Vector2( 0, -150 )
@@ -85,6 +86,7 @@ position = Vector2( 0, 150 )
 
 [node name="Spawn4" type="Node2D" parent="."]
 editor/display_folded = true
+visible = false
 position = Vector2( 896, 300 )
 
 [node name="Top" type="Node2D" parent="Spawn4"]

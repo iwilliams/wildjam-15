@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 export var ground_horizontal_speed = 4
-export var air_horizontal_speed = 2
+export (float) var air_horizontal_speed = 2
 export var stamina_recovery_rate = 10
 export var stamina_recovery_period = 1000
 export var jump_stamina_cost = 10

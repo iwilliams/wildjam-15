@@ -33,7 +33,7 @@ position = Vector2( 512, 0 )
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 74.0753, 403.143 )
+position = Vector2( 96.1281, 366.388 )
 mass = 1.5
 gravity_scale = 6.28
 ground_horizontal_speed = 12
@@ -46,10 +46,10 @@ jump_force = 300
 [node name="StaminaBar" type="ProgressBar" parent="Player"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -53.6232
-margin_top = -55.648
-margin_right = 56.3768
-margin_bottom = -41.648
+margin_left = -44.7758
+margin_top = -114.164
+margin_right = 65.2242
+margin_bottom = -100.164
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0

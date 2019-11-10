@@ -20,7 +20,7 @@ mass = 1.5
 stamina_recovery_rate = 80
 stamina_recovery_period = 10
 jump_stamina_cost = 15
-jump_force = 75
+jump_force = 100
 
 [node name="StaminaBar" type="ProgressBar" parent="Player"]
 anchor_left = 1.0

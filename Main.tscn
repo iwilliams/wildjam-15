@@ -1,111 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Room.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Platform.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Debug.gd" type="Script" id=5]
-[ext_resource path="res://asses/Floatig Islands.wav" type="AudioStream" id=6]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.301961, 0.717647, 0.152941, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.183818, 0.253906, 0.158691, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
+[ext_resource path="res://Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asses/Floatig Islands.wav" type="AudioStream" id=3]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
-room_scene = ExtResource( 2 )
-
-[node name="Rooms" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( 512, 0 )
-
-[node name="Room" parent="Rooms" instance=ExtResource( 2 )]
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 96.1281, 366.388 )
-mass = 1.5
-gravity_scale = 6.28
-ground_horizontal_speed = 12
-air_horizontal_speed = 1.0
-stamina_recovery_rate = 100
-stamina_recovery_period = 10
-jump_stamina_cost = 15
-jump_force = 300
-
-[node name="StaminaBar" type="ProgressBar" parent="Player"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -44.7758
-margin_top = -114.164
-margin_right = 65.2242
-margin_bottom = -100.164
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-value = 100.0
-percent_visible = false
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-limit_left = 0
-limit_top = 0
-limit_bottom = 600
-drag_margin_right = 0.0
-
-[node name="Platform" parent="." instance=ExtResource( 4 )]
-position = Vector2( -59.594, 500 )
-should_fall = false
-
-[node name="Platform2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 164.576, 500 )
-should_fall = false
-
-[node name="Platform3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 388.523, 500 )
-should_fall = false
-
-[node name="Platform4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 495.065, 627.213 )
-rotation = 1.5708
-should_fall = false
-
-[node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
-
-[node name="Container" type="MarginContainer" parent="HUD"]
-anchor_right = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 14.0
-
-[node name="Debug" type="Label" parent="HUD/Container"]
-margin_right = 1004.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "60fps"
-script = ExtResource( 5 )
-
-[node name="Score" type="Label" parent="HUD/Container"]
-margin_right = 1004.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DISTANCE: 00M"
-align = 2
+game_scene = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -30.0
+stream = ExtResource( 3 )
 autoplay = true

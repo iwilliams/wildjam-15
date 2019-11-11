@@ -1,16 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Platform.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://PlatformPhysics.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Platform.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.5
-bounce = 0.2
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112.143, 16.6783 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Shake"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
@@ -42,21 +39,21 @@ tracks/1/keys = {
 ]]
 mode = 3
 mass = 3.0
-physics_material_override = SubResource( 1 )
+physics_material_override = ExtResource( 1 )
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 3.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -67,5 +64,5 @@ color = Color( 0.341176, 0.0705882, 0.823529, 1 )
 polygon = PoolVector2Array( -72.5465, -18.9887, -72.78, 18.6603, 72.4834, 18.2466, 72.2498, -18.5749 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Shake = SubResource( 3 )
+anims/Shake = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Platform_body_entered"]

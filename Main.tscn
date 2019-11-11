@@ -33,6 +33,7 @@ position = Vector2( 512, 0 )
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 96.1281, 366.388 )
 mass = 1.5
 gravity_scale = 6.28
@@ -80,6 +81,7 @@ rotation = 1.5708
 should_fall = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Container" type="MarginContainer" parent="HUD"]
 anchor_right = 1.0

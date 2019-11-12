@@ -61,7 +61,7 @@ __meta__ = {
 [node name="Polygon2D" type="Polygon2D" parent="."]
 scale = Vector2( 1.535, 0.866486 )
 color = Color( 0.341176, 0.0705882, 0.823529, 1 )
-polygon = PoolVector2Array( -72.5465, -18.9887, -72.78, 18.6603, 72.4834, 18.2466, 72.2498, -18.5749 )
+polygon = PoolVector2Array( -72.9955, -19.1903, -72.9799, 19.0918, -55.1469, 54.7142, -32.3772, 44.7249, -6.94346, 106.871, 18.602, 26.7182, 47.8142, 56.4109, 72.9364, 19.1832, 73.0294, -19.1911 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shake = SubResource( 2 )

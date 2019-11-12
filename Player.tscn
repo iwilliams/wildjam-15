@@ -109,6 +109,7 @@ texture = SubResource( 7 )
 offset = Vector2( 61.4053, 150.257 )
 
 [node name="Body" type="Sprite" parent="."]
+editor/display_folded = true
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 1 )
 
@@ -144,13 +145,13 @@ anims/Idle = SubResource( 9 )
 anims/Walking = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -4.75003, 56.0502 )
+position = Vector2( -4.75003, 50.6337 )
 shape = SubResource( 6 )
 
 [node name="GroundCheckL" type="RayCast2D" parent="."]
-position = Vector2( -37.8253, 50.2537 )
+position = Vector2( -37.8253, 44.0634 )
 enabled = true
 
 [node name="GroundCheckR" type="RayCast2D" parent="."]
-position = Vector2( 28.6392, 50.2537 )
+position = Vector2( 28.6392, 44.0634 )
 enabled = true

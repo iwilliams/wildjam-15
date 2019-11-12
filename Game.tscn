@@ -36,8 +36,7 @@ position = Vector2( 512, 0 )
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 102.001, -118.107 )
+position = Vector2( 115.129, -99.6365 )
 mass = 1.5
 gravity_scale = 6.28
 ground_horizontal_speed = 12
@@ -50,16 +49,17 @@ jump_force = 300
 [node name="StaminaBar" type="ProgressBar" parent="Player"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -44.7758
-margin_top = -114.164
-margin_right = 65.2242
-margin_bottom = -100.164
+margin_left = -53.5463
+margin_top = -136.605
+margin_right = 56.4537
+margin_bottom = -122.605
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0
 percent_visible = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 102.001, -118.107 )
 current = true
 limit_left = 0
 limit_top = 0

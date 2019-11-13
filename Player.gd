@@ -25,9 +25,10 @@ func jump():
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
     $AnimationPlayer.play("Flying")
-    $FlyingSFX.play()
-#    $AnimatedSprite.frame = 0
-#    $AnimatedSprite.play("flying")
+    var sfx = $FlyingSFX.duplicate()
+    sfx.autoplay = true
+    add_child(sfx)
+    sfx.connect("finished", sfx, "queue_free")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

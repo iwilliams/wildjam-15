@@ -55,11 +55,6 @@ func _physics_process(delta):
     $AnimationPlayer.play("Walking")
   elif on_ground:
     $AnimationPlayer.play("Idle")
-#
-#  if linear_velocity.x < 0:
-#      $AnimatedSprite.flip_h = true
-#  else:
-#      $AnimatedSprite.flip_h = false
       
   pass
   

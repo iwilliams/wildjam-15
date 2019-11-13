@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PlatformPhysics.tres" type="PhysicsMaterial" id=4]
-[ext_resource path="res://Debug.gd" type="Script" id=5]
+[ext_resource path="res://PlatformPhysics.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://asses/island.png" type="Texture" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Debug.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 285.524, 134.933 )
+
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.301961, 0.717647, 0.152941, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -14,16 +18,13 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.183818, 0.253906, 0.158691, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 285.524, 134.933 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -35,7 +36,46 @@ position = Vector2( 512, 0 )
 
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="StaticBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 221.445, 551.679 )
+mode = 3
+physics_material_override = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2( -277, -134.405 )
+scale = Vector2( 57.0789, 26.889 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, 0, 10 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2( -285, -134.405 )
+scale = Vector2( 57.0789, 26.889 )
+texture = ExtResource( 4 )
+texture_offset = Vector2( 20, 0.2 )
+texture_scale = Vector2( 50, 50 )
+polygon = PoolVector2Array( 0, 0, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, 0, 10 )
+
+[node name="StaticBody2D2" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -194.704, 231.197 )
+rotation = 1.5708
+mode = 3
+physics_material_override = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+position = Vector2( -284.955, -134.405 )
+scale = Vector2( 57.0789, 26.889 )
+color = Color( 0.905882, 0.490196, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 10, 0, 10, 10, 0, 10 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 115.129, -99.6365 )
 mass = 1.5
 gravity_scale = 6.28
@@ -53,8 +93,8 @@ margin_left = -53.5463
 margin_top = -136.605
 margin_right = 56.4537
 margin_bottom = -122.605
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 value = 100.0
 percent_visible = false
 
@@ -65,37 +105,6 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 600
 drag_margin_right = 0.0
-
-[node name="StaticBody2D" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 221.445, 551.679 )
-mode = 3
-physics_material_override = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 3 )
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-position = Vector2( -284.955, -134.405 )
-scale = Vector2( 57.0789, 26.889 )
-color = Color( 0.905882, 0.490196, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 10, 0, 10, 10, 0, 10 )
-
-[node name="StaticBody2D2" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -194.704, 231.197 )
-rotation = 1.5708
-mode = 3
-physics_material_override = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource( 3 )
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
-position = Vector2( -284.955, -134.405 )
-scale = Vector2( 57.0789, 26.889 )
-color = Color( 0.905882, 0.490196, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 10, 0, 10, 10, 0, 10 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -112,7 +121,7 @@ margin_right = 1004.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "60fps"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Score" type="Label" parent="HUD/Container"]
 margin_right = 1004.0

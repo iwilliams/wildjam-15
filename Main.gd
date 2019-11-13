@@ -3,6 +3,7 @@ extends Node2D
 export (PackedScene) var game_scene
 
 var game = null
+var is_restarting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,15 +11,17 @@ func _ready():
   pass # Replace with function body.
 
 func start_game():
+  is_restarting = false
   game = game_scene.instance()
   game.connect("restart", self, "restart_game")
   add_child(game)
   
 func restart_game():
-  game.queue_free()
-  remove_child(game)
-  game = null
-  call_deferred("start_game")
+  if !is_restarting:
+    is_restarting = true
+    game.queue_free()
+    game = null
+    call_deferred("start_game")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #  pass

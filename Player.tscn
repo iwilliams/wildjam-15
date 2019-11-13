@@ -145,13 +145,8 @@ anims/Idle = SubResource( 7 )
 anims/Walking = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-<<<<<<< HEAD
-position = Vector2( -4.75003, 56.0502 )
-shape = SubResource( 9 )
-=======
 position = Vector2( -4.75003, 50.6337 )
-shape = SubResource( 6 )
->>>>>>> 84c2e1bb3c3e76b2b1b97ebf57f43ddfdb2cbb7f
+shape = SubResource( 9 )
 
 [node name="GroundCheckL" type="RayCast2D" parent="."]
 position = Vector2( -37.8253, 44.0634 )

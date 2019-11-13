@@ -25,6 +25,7 @@ func jump():
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
     $AnimationPlayer.play("Flying")
+    $FlyingSFX.play()
 #    $AnimatedSprite.frame = 0
 #    $AnimatedSprite.play("flying")
 

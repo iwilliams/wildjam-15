@@ -1,35 +1,35 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://asses/chicken_sprite.png" type="Texture" id=2]
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 861.008, 686.902, 212.003, 392.722 )
+[ext_resource path="res://asses/FlyingSFX.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 71.6261, 24.7286, 749.632, 1329.4 )
+region = Rect2( 861.008, 686.902, 212.003, 392.722 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 958.406, 89.9286, 890.774, 351.516 )
+region = Rect2( 71.6261, 24.7286, 749.632, 1329.4 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1010.33, 506.2, 838.845, 371.489 )
+region = Rect2( 958.406, 89.9286, 890.774, 351.516 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
+region = Rect2( 1010.33, 506.2, 838.845, 371.489 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
 region = Rect2( 1024.42, 999.082, 790.911, 347.522 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "Flying"
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Wings:rotation_degrees")
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "Idle"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Body/Wings:rotation_degrees")
@@ -92,7 +92,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 )
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 34.8012, 40.9993 )
 
 [node name="Player" type="RigidBody2D" groups=[
@@ -105,12 +105,12 @@ script = ExtResource( 1 )
 position = Vector2( -10.3969, 46.0907 )
 rotation = 0.698132
 scale = Vector2( 0.15, 0.15 )
-texture = SubResource( 7 )
+texture = SubResource( 1 )
 offset = Vector2( 61.4053, 150.257 )
 
 [node name="Body" type="Sprite" parent="."]
 scale = Vector2( 0.15, 0.15 )
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="Wings" type="Node2D" parent="Body"]
 editor/display_folded = true
@@ -119,33 +119,33 @@ rotation = -0.820305
 
 [node name="Upper" type="Sprite" parent="Body/Wings"]
 position = Vector2( -301.253, -33.4429 )
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 
 [node name="Middle" type="Sprite" parent="Body/Wings"]
 visible = false
 position = Vector2( -287.619, -34.1827 )
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 
 [node name="Bottom" type="Sprite" parent="Body/Wings"]
 visible = false
 position = Vector2( -255.133, 2.87286 )
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 
 [node name="FrontFoot" type="Sprite" parent="."]
 position = Vector2( -2.90852, 47.3467 )
 rotation = -0.261799
 scale = Vector2( 0.15, 0.15 )
-texture = SubResource( 7 )
+texture = SubResource( 1 )
 offset = Vector2( 61.6037, 158.047 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Flying = SubResource( 5 )
-anims/Idle = SubResource( 9 )
+anims/Flying = SubResource( 6 )
+anims/Idle = SubResource( 7 )
 anims/Walking = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.75003, 56.0502 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="GroundCheckL" type="RayCast2D" parent="."]
 position = Vector2( -37.8253, 50.2537 )
@@ -154,3 +154,7 @@ enabled = true
 [node name="GroundCheckR" type="RayCast2D" parent="."]
 position = Vector2( 28.6392, 50.2537 )
 enabled = true
+
+[node name="FlyingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -4.039

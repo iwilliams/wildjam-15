@@ -10,6 +10,7 @@ export var jump_force = 50
 var stamina = 100
 var on_ground = false
 var last_jump = 0
+var queue_jump = false
 
 onready var ground_check_l = get_node("GroundCheckL")
 onready var ground_check_r = get_node("GroundCheckR")
@@ -24,6 +25,7 @@ func jump():
     stamina -= jump_stamina_cost
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
+    $AnimationPlayer.seek(0)
     $AnimationPlayer.play("Flying")
     var sfx = $FlyingSFX.duplicate()
     sfx.autoplay = true
@@ -31,11 +33,16 @@ func jump():
     sfx.connect("finished", sfx, "queue_free")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(delta):  
+  if queue_jump:
+    jump()
+    queue_jump = false
+    return
+    
   on_ground = \
     ground_check_l.get_collider() != null || \
     ground_check_r.get_collider() != null
-  
+
   var horizontal_speed = ground_horizontal_speed
   if !on_ground:
     horizontal_speed = air_horizontal_speed
@@ -61,7 +68,7 @@ func _physics_process(delta):
   
 func _input(event):
   if event.is_action_pressed("jump"):
-    jump()
+    queue_jump = true
   pass
 
 

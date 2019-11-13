@@ -127,6 +127,7 @@ extents = Vector2( 34.8012, 40.9993 )
 [node name="Player" type="RigidBody2D" groups=[
 "Player",
 ]]
+collision_layer = 3
 mode = 2
 script = ExtResource( 1 )
 

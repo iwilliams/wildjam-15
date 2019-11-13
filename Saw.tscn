@@ -23,6 +23,8 @@ tracks/0/keys = {
 
 [node name="Saw" type="RigidBody2D"]
 position = Vector2( 505.601, 123.771 )
+collision_layer = 2
+collision_mask = 2
 mode = 3
 contacts_reported = 1
 contact_monitor = true

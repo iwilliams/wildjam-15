@@ -11,6 +11,8 @@ var stamina = 100
 var on_ground = false
 var last_jump = 0
 var queue_jump = false
+var should_die = false
+var is_dieing = false
 
 onready var ground_check_l = get_node("GroundCheckL")
 onready var ground_check_r = get_node("GroundCheckR")
@@ -18,6 +20,12 @@ onready var ground_check_r = get_node("GroundCheckR")
 # Called when the node enters the scene tree for the first time.
 func _ready():
   pass # Replace with function body.
+
+func die():
+  if !should_die && !is_dieing:
+    mode = RigidBody2D.MODE_RIGID
+    set_collision_layer_bit(1, false)
+    should_die = true
 
 func jump():
   if stamina > 0:
@@ -33,7 +41,16 @@ func jump():
     sfx.connect("finished", sfx, "queue_free")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):  
+func _physics_process(delta):
+  if should_die:
+    should_die = false
+    is_dieing = true
+    apply_impulse(Vector2(-200, 0), Vector2(-220, -220))
+    return  
+    
+  if is_dieing:
+    return
+    
   if queue_jump:
     jump()
     queue_jump = false

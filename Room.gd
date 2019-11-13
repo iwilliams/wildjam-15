@@ -36,7 +36,8 @@ func spawn_platform(spawn):
 func spawn_saw(spawn):
   var saw = saw_scene.instance()
   saw.position = get_spawn_position(spawn)
-  saw.connect("body_entered", self, "_on_DeathArea_body_entered")
+#  saw.connect("body_entered", self, "_on_DeathArea_body_entered")
+  saw.connect("body_entered", self, "_on_saw_entered")
   add_child(saw)
   pass
 
@@ -48,6 +49,10 @@ func spawn_platforms():
   else:
     spawn_platform(spawn_2)
   spawn_platform(spawn_3)  
+
+func _on_saw_entered(body):
+  if body.is_in_group("Player"):
+    body.call_deferred("die")
 
 func _on_Area2D_body_entered(body):
   if body.is_in_group("Player"):

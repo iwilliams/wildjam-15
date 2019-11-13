@@ -19,6 +19,7 @@ func start_game():
 func restart_game():
   if !is_restarting:
     is_restarting = true
+    yield(get_tree().create_timer(1.5), "timeout")
     game.queue_free()
     game = null
     call_deferred("start_game")

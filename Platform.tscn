@@ -62,6 +62,7 @@ extents = Vector2( 114.421, 16.6783 )
 [node name="Platform" type="RigidBody2D" groups=[
 "Platform",
 ]]
+editor/display_folded = true
 mode = 3
 mass = 3.0
 physics_material_override = ExtResource( 1 )

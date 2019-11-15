@@ -37,4 +37,5 @@ func _on_room_entered(room, has_room_to_right):
   pass # Replace with function body.
   
 func _on_player_entered_death_area():
+  $DeathFlap.play()
   emit_signal("restart")

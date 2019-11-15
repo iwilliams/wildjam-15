@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Debug.gd" type="Script" id=6]
 [ext_resource path="res://asses/SUBSCRIBER-Regular.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://asses/Death_flap.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 285.524, 134.933 )
@@ -136,3 +137,7 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "DISTANCE: 00M"
 align = 2
+
+[node name="DeathFlap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -3.03

@@ -6,10 +6,10 @@
 [ext_resource path="res://asses/island.png" type="Texture" id=4]
 [ext_resource path="res://asses/Fonte.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Debug.gd" type="Script" id=7]
+[ext_resource path="res://asses/Death_flap.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 285.524, 134.933 )
+extents = Vector2( 512, 134.933 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.301961, 0.717647, 0.152941, 1 )
@@ -32,14 +32,13 @@ script = ExtResource( 1 )
 room_scene = ExtResource( 2 )
 
 [node name="Rooms" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( 512, 0 )
+position = Vector2( 1024, 0 )
 
 [node name="Room" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Floor" type="RigidBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 221.445, 551.679 )
+position = Vector2( 512, 590 )
 mode = 3
 physics_material_override = ExtResource( 3 )
 
@@ -47,22 +46,25 @@ physics_material_override = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="Floor"]
-position = Vector2( -277, -134.405 )
-scale = Vector2( 57.0789, 26.889 )
+position = Vector2( -236.772, -134.405 )
+scale = Vector2( 72.5737, 26.889 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, 0, 10 )
+polygon = PoolVector2Array( -4.11711, 0.163822, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, -4.11711, 10.2051 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Polygon2D" type="Polygon2D" parent="Floor"]
-position = Vector2( -285, -134.405 )
-scale = Vector2( 57.0789, 26.889 )
+position = Vector2( -236.549, -134.405 )
+scale = Vector2( 71.7763, 26.889 )
 texture = ExtResource( 4 )
 texture_offset = Vector2( 20, 0.2 )
 texture_scale = Vector2( 50, 50 )
-polygon = PoolVector2Array( 0, 0, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, 0, 10 )
+polygon = PoolVector2Array( -3.97695, 0.163822, 10, 0, 10.3113, 2.33463, 9.74546, 6.11499, 10.0634, 8.03305, 10, 10, -3.97695, 10.2051 )
 
 [node name="Backstop" type="RigidBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( -194.704, 231.197 )
+position = Vector2( -140, 220 )
 rotation = 1.5708
 mode = 3
 physics_material_override = ExtResource( 3 )
@@ -76,11 +78,34 @@ scale = Vector2( 57.0789, 26.889 )
 color = Color( 0.905882, 0.490196, 0, 1 )
 polygon = PoolVector2Array( 0, 0, 10, 0, 10, 10, 0, 10 )
 
-[node name="Controls" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 180.0
-margin_right = 510.0
-margin_bottom = 313.0
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 160, 20 )
+
+[node name="Chicken" type="Label" parent="Node2D"]
+margin_left = 220.0
+margin_top = 65.8819
+margin_right = 320.0
+margin_bottom = 112.882
+rect_rotation = -15.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Chicken?"
+
+[node name="Or" type="Label" parent="Node2D"]
+margin_left = 330.0
+margin_top = 55.8819
+margin_right = 447.0
+margin_bottom = 102.882
+rect_rotation = 15.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "...Or Egg?"
+
+[node name="Controls" type="Label" parent="Node2D"]
+margin_left = 170.0
+margin_top = 210.0
+margin_right = 640.0
+margin_bottom = 343.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "<--       -->        JUMP
@@ -117,29 +142,6 @@ limit_top = 0
 limit_bottom = 600
 drag_margin_right = 0.0
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Container" type="MarginContainer" parent="HUD"]
-anchor_right = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 14.0
-
-[node name="Debug" type="Label" parent="HUD/Container"]
-visible = false
-margin_top = 28.0
-margin_right = 1004.0
-margin_bottom = 42.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "60fps"
-script = ExtResource( 7 )
-
-[node name="Score" type="Label" parent="HUD/Container"]
-margin_top = 2.0
-margin_right = 1004.0
-margin_bottom = 67.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DISTANCE: 00M"
-align = 2
+[node name="DeathFlap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -3.03

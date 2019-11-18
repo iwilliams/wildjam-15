@@ -33,7 +33,8 @@ func jump():
     stamina -= jump_stamina_cost
     stamina = clamp(stamina, 0, 100)
     last_jump = OS.get_ticks_msec()
-    $AnimationPlayer.seek(0)
+    if $AnimationPlayer.is_playing():
+      $AnimationPlayer.seek(0)
     $AnimationPlayer.play("Flying")
     var sfx = $FlyingSFX.duplicate()
     sfx.autoplay = true

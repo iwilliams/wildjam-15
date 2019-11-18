@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Death_flap.wav-3cf85d5ef0b068621b2ac5d4249de992.sample"
+
+[deps]
+
+source_file="res://asses/Death_flap.wav"
+dest_files=[ "res://.import/Death_flap.wav-3cf85d5ef0b068621b2ac5d4249de992.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

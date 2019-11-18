@@ -3,5 +3,5 @@
 [ext_resource path="res://asses/SUBSCRIBER-Regular.otf" type="DynamicFontData" id=1]
 
 [resource]
-size = 64
+size = 46
 font_data = ExtResource( 1 )
